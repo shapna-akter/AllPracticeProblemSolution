@@ -1392,3 +1392,98 @@ function onlyPositive(numbers){
 const arrNumbers = [45, 87, 96, 11, 63, -56, 11, 28, -87, 71];
 const positiveNumbers = onlyPositive(arrNumbers);
 console.log(positiveNumbers)
+
+// Assignment 4 problem solution
+
+// Problem: 1  radianToDegree
+function radianToDegree(input){
+    if(typeof input !== 'number'){
+        return "Please enter a valid number"
+    };
+    let getDegree = parseFloat((input * (180/ Math.PI)).toFixed(2));
+    return getDegree;
+}
+const radianToDegreeOutput = radianToDegree(10);
+console.log(radianToDegreeOutput);
+console.log(typeof(radianToDegreeOutput))
+
+// Problem:2  isJavaScriptFile
+function isJavaScriptFile(file){
+    if(typeof file !== 'string'){
+        return "Please enter a filename"
+    }
+    else if(file.toLowerCase().endsWith('.js')){
+        return true;
+    }
+    else{
+        return false
+    }
+}
+const jsFile = isJavaScriptFile("image.jpg.js");
+console.log(jsFile)
+console.log(typeof(jsFile))
+
+// Problem 3: oilPrice
+function oilPrice(deseil, petrol, octane){
+
+    if((typeof deseil !== 'number' || deseil < 0) || (typeof petrol !== 'number' || petrol < 0) || (typeof octane !== 'number' || octane < 0)) {
+        return "Please check your all input numbers"
+    }
+
+    const perLitrDeseilPrice = 114;
+    const perLitrPetrolPrice = 130;
+    const perLitrOctanePrice = 135;
+
+    let totalDeseilPrice = deseil * perLitrDeseilPrice;
+    let totalPetrolPrice = petrol * perLitrPetrolPrice;
+    let totalOctanePrice = octane * perLitrOctanePrice;
+
+    let totalOilPrice = totalDeseilPrice + totalPetrolPrice + totalOctanePrice;
+
+    return totalOilPrice;
+}
+const litrOfOil = oilPrice(30, 20, 10);
+console.log(litrOfOil)
+
+
+// Problem 4: publicBusFare
+function publicBusFare(people){
+
+    if(typeof people !== 'number' || people < 0 || Number.isInteger(people) !== true){
+        return "Please provide a valid input"
+    }
+
+    const busCapacity = 50;
+    const microCapacity = 11;
+
+    const restPeopleOfBus = people % busCapacity;
+    const restPeopleOfMicro = restPeopleOfBus % microCapacity;
+    const totalPublicBusFare = restPeopleOfMicro * 250;
+
+    return totalPublicBusFare;
+}
+const totalPassenger = publicBusFare(365);
+console.log(totalPassenger)
+
+// Problem 5: isBestFriend
+function isBestFriend(person1, person2){
+    if(typeof person1 !== 'object' && typeof person2 !== 'object'){
+        return "Please provide an object"
+    }
+
+    if((typeof person1.name !== 'string' || typeof person1.friend !== 'string') || (typeof person2.name !== 'string' || typeof person2.friend!== 'string')){
+        return "Please enter your name"
+    }
+
+    else if((person1.name.toLowerCase() === person2.friend.toLowerCase()) && (person1.friend.toLowerCase() === person2.name.toLowerCase())){
+        return true
+    }
+
+    else{
+        return false
+    }
+}
+const person1 = {name: "abul", friend: "babul"};
+const person2 = {name : "babul", friend: "abul"};
+const bestFriend = isBestFriend(person1, person2);
+console.log(bestFriend)
