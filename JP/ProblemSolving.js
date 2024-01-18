@@ -6,9 +6,9 @@
 // I wish you’ll shine in your life! Good luck with all the barriers(/\) in your
 // life.”
 
-console.log("Recently I heard that you’ve achieved 95% marks in your exam.");
-console.log("This is brilliant!");
-console.log("I wish you’ll shine in your life! Good luck with all the barriers(/\\) in your life.");
+const str = "Recently I heard that you’ve achieved 95% marks in your exam. \nThis is brilliant! \nI wish you’ll shine in your life!	Good luck with all the barriers(/\\) in your life."
+
+console.log(str);
 
 // Problem-2
 // ত োমাকে দইুটি ইন্টিজার ভ্যেলুইনপুট নিতে হবে এবং তাদের য োগফল, বিয় োগফল,
