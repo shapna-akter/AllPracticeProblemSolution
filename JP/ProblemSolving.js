@@ -242,4 +242,140 @@ const Population = [
   
   // Print the updated array
   console.log(updatedPeopleArray);
+
+
+//   Task: Array Reduction
+// Create an array of numbers. Write a function that uses the reduce method to calculate the sum of all even numbers in the array.
+
+// Create an array of numbers
+const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Write a function to calculate the sum of all even numbers using reduce
+const sumOfEvenNumbers = numbersArray.reduce((accumulator, currentValue) => {
+  if (currentValue % 2 === 0) {
+    return accumulator + currentValue;
+  } else {
+    return accumulator;
+  }
+}, 0);
+
+// Output the result
+console.log("Sum of even numbers:", sumOfEvenNumbers);
+ 
+// Task: Leap Year Checker
+// Write a function that determines whether a given year is a leap year.
+
+function leapYear(year){
+  if((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)){
+      return true
+  }
+      return false
+}
+const isLeapYear = leapYear(2023)
+console.log("2023 is a leapyear", isLeapYear)
+
+// Task: Count Vowels:
+// Write a function that counts the number of vowels in a given string.
+// Example: Happy New Year
+
+function countVowels(str) {
+  const lowerStr = str.toLowerCase();
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+
+  // Use the reduce method to count the number of vowels
+  const vowelCount = lowerStr.split('').reduce((count, char) => {
+    if (vowels.has(char)) {
+      return count + 1;
+    } else {
+      return count;
+    }
+  }, 0);
+
+  return vowelCount;
+}
+
+// Example usage:
+const inputString = "Happy New Year";
+const vowelResult = countVowels(inputString);
+console.log(`Number of vowels in "${inputString}": ${result}`);
+
+
+
+// Task: Unique Values
+// Create an array of numbers with some duplicate values. Write a function to filter out the duplicate values and return a new array with only unique numbers. Print the result.
+
+const array = [1, 2, 2, 3, 4, 4, 5, 5];
+const uniqueArray = [...new Set(array)];
+
+console.log(uniqueArray);
+
+
+
+// Task: Find Maximum Value:
+// Write a function that takes an array of numbers and returns the maximum value.
+function findMaxValue(numbers) {
+  if (numbers.length === 0) {
+    return undefined;
+  }
+  const maxValue = Math.max(...numbers);
+  return maxValue;
+}
+
+// Example usage:
+const numArray = [5, 12, 8, 3, 10];
+const maxNumber = findMaxValue(numbersArray);
+console.log("Maximum Value:", maxNumber);
+
+
+
+// Task: Advanced Sorting
+// Create an array of objects representing students with 'name' and 'grades' properties. Write a function to sort the students by average grade in descending order.
+
+// Create an array of objects representing students
+const students = [
+  { name: 'A', grades: [90, 85, 92] },
+  { name: 'B', grades: [78, 89, 80] },
+  { name: 'C', grades: [95, 88, 92] },
+];
+
+// Calculate the average grade of a student
+const calculateAverageGrade = student => student.grades.reduce((sum, grade) => sum + grade, 0) / student.grades.length;
+
+const sortByAverageGradeDescending = (student1, student2) => calculateAverageGrade(student2) - calculateAverageGrade(student1);
+
+const sortedStudents = students.slice().sort(sortByAverageGradeDescending);
+
+console.log("Students Sorted by Average Grade (Descending):", sortedStudents);
+
+
+
+// Task: Functional Programming - Reduce
+// Write a function that uses the reduce function to calculate the total value of an array of objects with a 'quantity' and 'price' property.interview
+
+const products = [
+  { name: 'Product A', quantity: 2, price: 10 },
+  { name: 'Product B', quantity: 1, price: 20 },
+  { name: 'Product C', quantity: 3, price: 15 },
+];
+
+const calculateTotalValue = items => items.reduce((total, item) => total + item.quantity * item.price, 0);
+
+const totalValue = calculateTotalValue(products);
+
+console.log("Total Value:", totalValue);
+
+
+
+// Task: Array Intersection
+// Write a function that takes two arrays and returns a new array containing only the elements that appear in both arrays.
+
+const arrayA = [1, 2, 3, 4, 5];
+  const arrayB = [3, 4, 5, 6, 7];
+
+const findCommonElements = (array1, array2) => {
+    const commonElements = array1.filter(element => array2.includes(element));
+    return commonElements;
+  };
+  const commonElementsArray = findCommonElements(arrayA, arrayB);
+  console.log("Common Elements:", commonElementsArray);
   
